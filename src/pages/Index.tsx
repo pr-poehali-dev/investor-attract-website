@@ -62,6 +62,7 @@ const Index = () => {
                 { id: 'about', label: 'О компании' },
                 { id: 'portfolio', label: 'Портфолио' },
                 { id: 'financials', label: 'Финансы' },
+                { id: 'presentation', label: 'Материалы' },
                 { id: 'contact', label: 'Контакты' },
               ].map((item) => (
                 <button
@@ -285,6 +286,64 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="presentation" className="py-20 px-6 bg-muted">
+        <div className="container mx-auto max-w-5xl">
+          <h3 className="text-4xl font-heading font-bold text-center mb-4">Материалы для инвесторов</h3>
+          <p className="text-center text-muted-foreground mb-12">
+            Скачайте подробную информацию о компании и финансовые отчеты
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="FileText" className="text-primary" size={32} />
+                </div>
+                <CardTitle className="font-heading">Презентация компании</CardTitle>
+                <CardDescription>Подробная информация о бизнесе, команде и стратегии развития</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button className="w-full" variant="outline">
+                  <Icon name="Download" className="mr-2" size={18} />
+                  Скачать PDF (2.4 МБ)
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="BarChart3" className="text-primary" size={32} />
+                </div>
+                <CardTitle className="font-heading">Финансовая отчетность</CardTitle>
+                <CardDescription>Полная финансовая отчетность за последние 4 года с аудитом</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button className="w-full" variant="outline">
+                  <Icon name="Download" className="mr-2" size={18} />
+                  Скачать PDF (1.8 МБ)
+                </Button>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Icon name="TrendingUp" className="text-primary" size={32} />
+                </div>
+                <CardTitle className="font-heading">Инвестиционный меморандум</CardTitle>
+                <CardDescription>Детальная информация об инвестиционном раунде и условиях</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button className="w-full" variant="outline">
+                  <Icon name="Download" className="mr-2" size={18} />
+                  Скачать PDF (3.1 МБ)
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="py-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <h3 className="text-4xl font-heading font-bold text-center mb-4">Свяжитесь с нами</h3>
@@ -392,8 +451,8 @@ const Index = () => {
               <h5 className="font-heading font-semibold mb-4">Для инвесторов</h5>
               <div className="space-y-2 text-sm text-secondary-foreground/80">
                 <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('financials')}>Финансы</div>
-                <div className="cursor-pointer hover:text-primary transition-colors">Презентация</div>
-                <div className="cursor-pointer hover:text-primary transition-colors">Отчетность</div>
+                <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('presentation')}>Презентация</div>
+                <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('presentation')}>Отчетность</div>
               </div>
             </div>
             <div>
