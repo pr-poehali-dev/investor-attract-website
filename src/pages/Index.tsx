@@ -6,32 +6,40 @@ import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const revenueData = [
-  { year: '2020', revenue: 45, profit: 12 },
-  { year: '2021', revenue: 78, profit: 24 },
-  { year: '2022', revenue: 125, profit: 42 },
-  { year: '2023', revenue: 189, profit: 68 },
-  { year: '2024', revenue: 267, profit: 98 },
+const constructionData = [
+  { phase: 'Q1 2025', progress: 15, invested: 85 },
+  { phase: 'Q2 2025', progress: 35, invested: 220 },
+  { phase: 'Q3 2025', progress: 60, invested: 420 },
+  { phase: 'Q4 2025', progress: 85, invested: 680 },
+  { phase: 'Q1 2026', progress: 100, invested: 850 },
 ];
 
-const portfolioProjects = [
+const revenueProjection = [
+  { year: '2026', revenue: 180, occupancy: 55 },
+  { year: '2027', revenue: 340, occupancy: 72 },
+  { year: '2028', revenue: 480, occupancy: 85 },
+  { year: '2029', revenue: 560, occupancy: 88 },
+  { year: '2030', revenue: 620, occupancy: 90 },
+];
+
+const hotelFeatures = [
   {
-    title: 'Цифровая трансформация банка',
-    description: 'Полная модернизация IT-инфраструктуры крупного банка',
-    result: '+340% эффективности',
-    investment: '12 млн ₽'
+    title: 'Номерной фонд',
+    description: '120 номеров премиум-класса с видом на море',
+    icon: 'Building2',
+    detail: 'От студий до люксов'
   },
   {
-    title: 'E-commerce платформа',
-    description: 'Разработка маркетплейса для B2B сегмента',
-    result: '2.5 млн пользователей',
-    investment: '8 млн ₽'
+    title: 'Инфраструктура',
+    description: 'SPA-центр, рестораны, конференц-залы, бассейн',
+    icon: 'Sparkles',
+    detail: '5 ресторанов и баров'
   },
   {
-    title: 'FinTech решение',
-    description: 'Платформа для управления инвестициями',
-    result: '+580% ROI',
-    investment: '15 млн ₽'
+    title: 'Локация',
+    description: 'Первая линия моря, курортная зона с развитой инфраструктурой',
+    icon: 'MapPin',
+    detail: '50м от пляжа'
   },
 ];
 
@@ -55,7 +63,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-secondary/95 backdrop-blur-sm z-50 border-b border-border">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-heading font-bold text-secondary-foreground">InvestTech</h1>
+            <h1 className="text-2xl font-heading font-bold text-secondary-foreground">Grand Marina Resort</h1>
             <div className="hidden md:flex gap-8">
               {[
                 { id: 'home', label: 'Главная' },
@@ -85,10 +93,10 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
               <h2 className="text-5xl md:text-6xl font-heading font-bold leading-tight text-secondary">
-                Инвестируйте в будущее технологий
+                Инвестируйте в премиальный курортный отель
               </h2>
               <p className="text-xl text-muted-foreground">
-                Проверенная команда, прозрачная отчетность, стабильный рост с 2020 года
+                5-звездочный отель на берегу моря. Старт строительства — Q1 2025. Окупаемость 6 лет
               </p>
               <div className="flex gap-4">
                 <Button onClick={() => scrollToSection('financials')} size="lg" className="font-medium">
@@ -101,24 +109,24 @@ const Index = () => {
               </div>
               <div className="grid grid-cols-3 gap-6 pt-8">
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-primary">267M</div>
-                  <div className="text-sm text-muted-foreground mt-1">Выручка 2024</div>
+                  <div className="text-4xl font-heading font-bold text-primary">850М ₽</div>
+                  <div className="text-sm text-muted-foreground mt-1">Бюджет проекта</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-primary">+493%</div>
-                  <div className="text-sm text-muted-foreground mt-1">Рост за 4 года</div>
+                  <div className="text-4xl font-heading font-bold text-primary">120</div>
+                  <div className="text-sm text-muted-foreground mt-1">Номеров премиум</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-heading font-bold text-primary">98M</div>
-                  <div className="text-sm text-muted-foreground mt-1">Прибыль 2024</div>
+                  <div className="text-4xl font-heading font-bold text-primary">6 лет</div>
+                  <div className="text-sm text-muted-foreground mt-1">Окупаемость</div>
                 </div>
               </div>
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src="https://cdn.poehali.dev/projects/5bc1fd9a-a76b-4ddb-8adb-3c711ff006bc/files/a75cf7e1-a65e-46f0-a744-46298ddab823.jpg" 
-                  alt="Профессиональная команда" 
+                  src="https://cdn.poehali.dev/projects/5bc1fd9a-a76b-4ddb-8adb-3c711ff006bc/files/e80cc42c-4308-4d61-a5ca-5b68b765d50a.jpg" 
+                  alt="Grand Marina Resort" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -129,76 +137,60 @@ const Index = () => {
 
       <section id="about" className="py-20 px-6 bg-card">
         <div className="container mx-auto max-w-6xl">
-          <h3 className="text-4xl font-heading font-bold text-center mb-4">О компании</h3>
+          <h3 className="text-4xl font-heading font-bold text-center mb-4">О проекте</h3>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Мы создаем технологические решения, которые меняют индустрии
+            Строительство премиального курортного отеля мирового уровня
           </p>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 hover:border-primary transition-colors">
-              <CardHeader>
-                <Icon name="Target" className="mb-4 text-primary" size={40} />
-                <CardTitle className="font-heading">Миссия</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Создавать инновационные технологические продукты, которые повышают эффективность бизнеса и улучшают жизнь людей
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 hover:border-primary transition-colors">
-              <CardHeader>
-                <Icon name="Eye" className="mb-4 text-primary" size={40} />
-                <CardTitle className="font-heading">Видение</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Стать лидером в разработке передовых цифровых решений для финтех и е-commerce сегментов к 2027 году
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-2 hover:border-primary transition-colors">
-              <CardHeader>
-                <Icon name="Users" className="mb-4 text-primary" size={40} />
-                <CardTitle className="font-heading">Команда</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  85+ профессионалов с опытом работы в Google, Yandex, Сбербанк. Средний опыт команды — 8 лет
-                </p>
-              </CardContent>
-            </Card>
+            {hotelFeatures.map((feature, idx) => (
+              <Card key={idx} className="border-2 hover:border-primary transition-colors">
+                <CardHeader>
+                  <Icon name={feature.icon as any} className="mb-4 text-primary" size={40} />
+                  <CardTitle className="font-heading">{feature.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground mb-2">{feature.description}</p>
+                  <p className="text-sm font-semibold text-primary">{feature.detail}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
       <section id="portfolio" className="py-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h3 className="text-4xl font-heading font-bold text-center mb-4">Портфолио проектов</h3>
+          <h3 className="text-4xl font-heading font-bold text-center mb-4">Визуализация проекта</h3>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Успешно реализованные проекты с измеримыми результатами
+            Концепт-дизайн и архитектура будущего отеля
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {portfolioProjects.map((project, idx) => (
-              <Card key={idx} className="hover:shadow-xl transition-shadow">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon name="Briefcase" className="text-primary" size={24} />
-                  </div>
-                  <CardTitle className="font-heading">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Результат:</span>
-                    <span className="font-semibold text-primary">{project.result}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-muted-foreground">Инвестиции:</span>
-                    <span className="font-semibold">{project.investment}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5bc1fd9a-a76b-4ddb-8adb-3c711ff006bc/files/e80cc42c-4308-4d61-a5ca-5b68b765d50a.jpg" 
+                  alt="Внешний вид отеля" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="font-heading">Экстерьер</CardTitle>
+                <CardDescription>Современная архитектура в средиземноморском стиле</CardDescription>
+              </CardHeader>
+            </Card>
+            <Card className="overflow-hidden hover:shadow-xl transition-shadow">
+              <div className="aspect-video">
+                <img 
+                  src="https://cdn.poehali.dev/projects/5bc1fd9a-a76b-4ddb-8adb-3c711ff006bc/files/2d4a3726-36b9-4181-860b-e9e5d8083c0e.jpg" 
+                  alt="Интерьер отеля" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <CardHeader>
+                <CardTitle className="font-heading">Интерьер</CardTitle>
+                <CardDescription>Элегантный дизайн лобби и общественных зон</CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
@@ -207,25 +199,25 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <h3 className="text-4xl font-heading font-bold text-center mb-4">Финансовые показатели</h3>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Прозрачная финансовая отчетность и стабильный рост
+            График строительства и прогноз доходности
           </p>
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <Card>
               <CardHeader>
-                <CardTitle className="font-heading">Динамика выручки и прибыли</CardTitle>
-                <CardDescription>Показатели в млн ₽</CardDescription>
+                <CardTitle className="font-heading">График строительства</CardTitle>
+                <CardDescription>Прогресс и инвестиции (млн ₽)</CardDescription>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
-                  <LineChart data={revenueData}>
+                  <LineChart data={constructionData}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="year" />
+                    <XAxis dataKey="phase" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="revenue" stroke="hsl(var(--primary))" strokeWidth={2} name="Выручка" />
-                    <Line type="monotone" dataKey="profit" stroke="hsl(var(--accent))" strokeWidth={2} name="Прибыль" />
+                    <Line type="monotone" dataKey="progress" stroke="hsl(var(--primary))" strokeWidth={2} name="Прогресс %" />
+                    <Line type="monotone" dataKey="invested" stroke="hsl(var(--accent))" strokeWidth={2} name="Инвестиции" />
                   </LineChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -233,19 +225,19 @@ const Index = () => {
 
             <Card>
               <CardHeader>
-                <CardTitle className="font-heading">Сравнение по годам</CardTitle>
-                <CardDescription>Рост показателей</CardDescription>
+                <CardTitle className="font-heading">Прогноз доходности</CardTitle>
+                <CardDescription>Выручка и загрузка (млн ₽ / %)</CardDescription>
               </CardHeader>
               <CardContent>
                 <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={revenueData}>
+                  <BarChart data={revenueProjection}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="year" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
                     <Bar dataKey="revenue" fill="hsl(var(--primary))" name="Выручка" />
-                    <Bar dataKey="profit" fill="hsl(var(--accent))" name="Прибыль" />
+                    <Bar dataKey="occupancy" fill="hsl(var(--accent))" name="Загрузка %" />
                   </BarChart>
                 </ResponsiveContainer>
               </CardContent>
@@ -255,26 +247,26 @@ const Index = () => {
           <Card className="bg-gradient-to-r from-primary/10 to-accent/10 border-2 border-primary">
             <CardHeader>
               <CardTitle className="font-heading text-2xl">Инвестиционное предложение</CardTitle>
-              <CardDescription className="text-base">Открыт раунд серии B</CardDescription>
+              <CardDescription className="text-base">Привлечение инвестиций на строительство</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
-                  <div className="text-sm text-muted-foreground mb-1">Цель привлечения</div>
-                  <div className="text-2xl font-heading font-bold">150 млн ₽</div>
+                  <div className="text-sm text-muted-foreground mb-1">Объем привлечения</div>
+                  <div className="text-2xl font-heading font-bold">350 млн ₽</div>
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground mb-1">Оценка компании</div>
-                  <div className="text-2xl font-heading font-bold">1.2 млрд ₽</div>
+                  <div className="text-sm text-muted-foreground mb-1">Ожидаемая доходность</div>
+                  <div className="text-2xl font-heading font-bold">18-22% годовых</div>
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground mb-1">Минимальный чек</div>
-                  <div className="text-2xl font-heading font-bold">от 5 млн ₽</div>
+                  <div className="text-sm text-muted-foreground mb-1">Минимальный вход</div>
+                  <div className="text-2xl font-heading font-bold">от 10 млн ₽</div>
                 </div>
               </div>
               <div className="pt-4">
                 <p className="text-muted-foreground mb-4">
-                  Средства будут направлены на масштабирование продуктов, выход на международные рынки и усиление команды разработки
+                  Инвестиции будут направлены на завершение строительства, оснащение отеля и маркетинговую кампанию. Окупаемость проекта 6 лет
                 </p>
                 <Button onClick={() => scrollToSection('contact')} size="lg" className="w-full md:w-auto">
                   <Icon name="Mail" className="mr-2" size={20} />
@@ -434,16 +426,16 @@ const Index = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h4 className="font-heading font-bold text-lg mb-4">InvestTech</h4>
+              <h4 className="font-heading font-bold text-lg mb-4">Grand Marina Resort</h4>
               <p className="text-sm text-secondary-foreground/80">
-                Технологические решения для бизнеса будущего
+                Премиальный курортный отель 5 звезд
               </p>
             </div>
             <div>
-              <h5 className="font-heading font-semibold mb-4">Компания</h5>
+              <h5 className="font-heading font-semibold mb-4">Проект</h5>
               <div className="space-y-2 text-sm text-secondary-foreground/80">
-                <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('about')}>О нас</div>
-                <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('portfolio')}>Проекты</div>
+                <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('about')}>О проекте</div>
+                <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('portfolio')}>Визуализация</div>
                 <div className="cursor-pointer hover:text-primary transition-colors" onClick={() => scrollToSection('contact')}>Контакты</div>
               </div>
             </div>
@@ -465,7 +457,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-secondary-foreground/20 pt-8 text-center text-sm text-secondary-foreground/60">
-            © 2024 InvestTech. Все права защищены.
+            © 2024 Grand Marina Resort. Все права защищены.
           </div>
         </div>
       </footer>
